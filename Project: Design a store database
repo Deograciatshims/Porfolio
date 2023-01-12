@@ -1,0 +1,28 @@
+Create your own store! Your store should sell one type of things, like clothing or bikes, 
+whatever you want your store to specialize in. You should have a table for all the items in your store,
+and at least 5 columns for the kind of data you think you'd need to store. 
+You should sell at least 15 items, and use select statements to order your items by price and show at least one statistic about the items.
+
+
+
+CREATE TABLE Videogames (id INTEGER PRIMARY KEY, title TEXT, genre TEXT, platform Text, price INTEGER);
+
+INSERT INTO Videogames VALUES(1, "Dragon Ball Z Kakarot", "fighting ", "PS4", 45);
+INSERT INTO Videogames VALUES(2, "Pokemon", "Adventure", "Wii", 20);
+INSERT INTO Videogames VALUES(3, "Soul Calibur 6", "fighting ", "PS4", 50);
+INSERT INTO Videogames VALUES(4, "Uncharted 5", "Action/Adventure", "PS4", 35);
+INSERT INTO Videogames VALUES(5, "Far Cry", "Action", "XBOX ONE", 50);
+INSERT INTO Videogames VALUES(6, "Horizon Zero Down", "Action/Adventure", "XBOX ONE", 40);
+INSERT INTO Videogames VALUES(7, "Diablo 4", "Adventure", "XBOX ONE", 25);
+INSERT INTO Videogames VALUES(8, "Pokemon silver", "Adventure", "Wii", 20);
+INSERT INTO Videogames VALUES(9, "Miles Morales Spiderman", "Action", "PS4", 40);
+INSERT INTO Videogames VALUES(10, "Dragon Ball Z Xenoverse 2", "Action/Adventure", "PS4", 35);
+INSERT INTO Videogames VALUES(11, "Mortal Kombat 11 Ultimate", "Fighting", "XBOX ONE", 50);
+INSERT INTO Videogames VALUES(12, "God OF War", "Action/Adventure", "PS4", 40);
+INSERT INTO Videogames VALUES(13, "God of War Ragnarok", "Action/Adventure", "PS5", 50);
+INSERT INTO Videogames VALUES(14, "Witcher 3", "Fantasy", "PS4", 20);
+INSERT INTO Videogames VALUES(15, "Injustice 2 Legendary", "Fighting", "PS4", 40);
+
+SELECT * FROM Videogames order by Price;
+
+SELECT SUM(price) From Videogames where price>30 order by title;
