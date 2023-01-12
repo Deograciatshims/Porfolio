@@ -1,0 +1,65 @@
+In this project, you’re going to make your own table with some small set of “famous people”, then make more tables about things they do and join those to create nice human readable lists.
+
+For example, here are types of famous people and the questions your data could answer:
+
+Movie stars: What movies are they in? Are they married to each other?
+Singers: What songs did they write? Where are they from?
+Authors: What books did they write?
+Fictional characters: How are they related to other characters? What books do they show up in?
+
+
+/* Create table about the people and what they do here */
+CREATE TABLE Tekkencharacters (id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+Age INTEGER, familymembers_id INTEGER);
+
+INSERT INTO Tekkencharacters VALUES (1, "Heihachi Mishima", 75, 2);
+INSERT INTO Tekkencharacters VALUES (2, "Kazuya Mishima", 49, 1);
+INSERT INTO Tekkencharacters VALUES (3, "Jun Kazama", 37, 4);
+INSERT INTO Tekkencharacters VALUES (4, "Jin Kazama", 21, 2);
+INSERT INTO Tekkencharacters VALUES (5, "Anna Williams", 41, 6);
+INSERT INTO Tekkencharacters VALUES (6, "Nina Williams", 43, 5);
+INSERT INTO Tekkencharacters VALUES (7, "Steve Fox", 21, 6 );
+INSERT INTO Tekkencharacters VALUES (8, "Lars Alexander", 28, 1);
+INSERT INTO Tekkencharacters VALUES (9, "Lee Chaolan", 48, 1);
+INSERT INTO Tekkencharacters VALUES (10, "Marshall Law", 48, 11);
+INSERT INTO Tekkencharacters VALUES(11, "Forrest Law", 27, 10);
+INSERT INTO Tekkencharacters VALUES(12, "Michelle Chang", 41, 13);
+INSERT INTO Tekkencharacters VALUES(13, "Julia Chang", 20, 12);
+
+INSERT INTO Tekkencharacters VALUES(14, "Asuka Kazama", 18, 3);
+INSERT INTO Tekkencharacters VALUES(15, "Jinpaichi Mishima", 105, 1);
+
+
+/**table of relatives**/
+SELECT family.name as familymembers, family.age, Tekkencharacters.name, Tekkencharacters.Age
+FROM Tekkencharacters Family
+Join Tekkencharacters 
+on Tekkencharacters.id= Family.familymembers_id;
+
+/**first tekken appearrance**/
+
+CREATE TABLE firstappearrancetekken ( first_id INTEGER, appearrance TEXT);
+
+INSERT INTO firstappearrancetekken VALUES ( 1, "Tekken");
+INSERT INTO firstappearrancetekken VALUES (2,  "Tekken");
+INSERT INTO firstappearrancetekken VALUES (5,  "Tekken");
+INSERT INTO firstappearrancetekken VALUES (6, "Tekken");
+INSERT INTO firstappearrancetekken VALUES (9, "Tekken");
+INSERT INTO firstappearrancetekken VALUES (10, "Tekken");
+INSERT INTO firstappearrancetekken VALUES (12, "Tekken");
+INSERT INTO firstappearrancetekken VALUES (3, "Tekken2");
+INSERT INTO firstappearrancetekken VALUES (4, "Tekken3");
+INSERT INTO firstappearrancetekken VALUES (11, "Tekken3");
+INSERT INTO firstappearrancetekken VALUES (13, "Tekken3");
+INSERT INTO firstappearrancetekken VALUES (7, "Tekken 4");
+INSERT INTO firstappearrancetekken VALUES (14, "Tekken 5");
+INSERT INTO firstappearrancetekken VALUES (8, "Tekken6");
+INSERT INTO firstappearrancetekken VALUES (15, "Tekken 5");
+
+
+SELECT Tekkencharacters.name, firstappearrancetekken.appearrance
+From Tekkencharacters
+left outer join firstappearrancetekken
+on Tekkencharacters.id= firstappearrancetekken.first_id;
+
